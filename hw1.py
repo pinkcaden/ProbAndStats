@@ -1,5 +1,3 @@
-
-
 import math
 
 def get_q1(sample):
