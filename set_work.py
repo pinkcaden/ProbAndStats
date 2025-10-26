@@ -10,6 +10,7 @@ def union(set1, set2):
             ret.append(num)
     return ret
 
+
 def intersection(set1, set2):
     ret = []
     for num in set1:
@@ -18,12 +19,14 @@ def intersection(set1, set2):
 
     return ret
 
+
 def complement(set, universal):
     ret = []
     for num in universal:
         if num not in set:
             ret.append(num)
     return ret
+
 
 def difference(minuend, subtrahend):
     return complement(subtrahend, minuend)
@@ -36,17 +39,16 @@ def problem_14():
     c = {2, 3, 4, 5}
     d = {1, 6, 7}
 
-
     print(sorted(union(a, c)))
     print(sorted(intersection(a, b)))
 
     print(complement(c, s))
 
-    print( sorted(union( intersection(complement(c, s), d ), b )))
+    print(sorted(union(intersection(complement(c, s), d), b)))
 
-    print(complement(intersection(s,c), s))
+    print(complement(intersection(s, c), s))
 
-    print(intersection(intersection(a, c),complement(d,s)))
+    print(intersection(intersection(a, c), complement(d, s)))
 
 
 def problem_15():
@@ -56,10 +58,20 @@ def problem_15():
     b = {"sodium", "nitrogen", "potassium"}
     c = {"oxygen"}
 
-    print(complement(a,s))
+    print(complement(a, s))
 
-    print(union(a,c))
+    print(union(a, c))
 
-    print(union(intersection(a,complement(b, s)),complement(c,s)))
+    print(union(intersection(a, complement(b, s)), complement(c, s)))
+
+    print(intersection(complement(b, s), complement(c, s)))
+
+    print(intersection(intersection(a, b), c))
+
+    print(intersection(
+        union(complement(a, s), complement(b, s)),
+        intersection(complement(a, s), c)
+    ))
+
 
 problem_15()
